@@ -1,4 +1,4 @@
-package com.example.touristpackage.entity;
+package com.example.touristpackage.entities;
 
 public class BasicPackage {
     private String id;
