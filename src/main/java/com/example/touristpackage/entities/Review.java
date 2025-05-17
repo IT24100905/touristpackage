@@ -1,4 +1,4 @@
-package com.example.touristpackage.entites;
+package com.example.touristpackage.entities;
 
 public class Review {
     private String username;
