@@ -1,4 +1,4 @@
-package com.example.touristpackage.entities;
+package com.example.touristpackage.entity;
 
 public class Order {
     private String username;
