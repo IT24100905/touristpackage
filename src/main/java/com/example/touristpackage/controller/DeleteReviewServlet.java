@@ -1,4 +1,4 @@
-package com.example.touristpackage.controllers;
+package com.example.touristpackage.controller;
 
 import com.example.touristpackage.util.ReviewUtil;
 
