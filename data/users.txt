@@ -1,6 +1,5 @@
 admin,admin123,admin
 sishan,hi123,user
-chamith123,pass123,user
 nimesha99,hello99,user
 kavindu_21,kavi@123,user
 taniya_rose,taniya2024,user
