@@ -24,5 +24,4 @@ public class DeleteReviewServlet extends HttpServlet {
 
         // Redirect to the servlet, not directly to the JSP
         response.sendRedirect("manageFeedback");
-    }
-}
+    }}
