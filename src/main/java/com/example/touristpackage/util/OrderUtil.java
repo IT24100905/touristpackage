@@ -36,20 +36,22 @@ public class OrderUtil {
     }
 
     public static void saveBasicOrder(Order o) {
-        String path = FilePathUtil.BASIC_ORDER_FILE;
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FilePathUtil.BASIC_ORDER_FILE, true))) {
             writer.write(String.join(",",
-                    o.getUsername(), o.getTitle(), o.getName(), o.getEmail(), o.getContact(), o.getNationality(),
-                    String.valueOf(o.getAdults()), String.valueOf(o.getKids()), o.getArrival(),
-                    String.valueOf(o.getDuration()), o.getCountry(), o.getMessage().replace(",", " "),
-                    String.valueOf(o.getTotalCost()), o.getPaymentMethod(), o.getPaymentDate(),
-                    o.getPaymentReference(), o.getStatus()
+                    o.getUsername(), o.getTitle(), o.getName(), o.getEmail(),
+                    o.getContact(), o.getNationality(),
+                    String.valueOf(o.getAdults()), String.valueOf(o.getKids()),
+                    o.getArrival(), String.valueOf(o.getDuration()),
+                    o.getCountry(), o.getMessage(),
+                    String.valueOf(o.getTotalCost()), o.getPaymentMethod(),
+                    o.getPaymentReference(), o.getPaymentDate(), o.getStatus() // ✅ 17 fields
             ));
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
     public static List<Order> getOrdersForUser(String username) {
