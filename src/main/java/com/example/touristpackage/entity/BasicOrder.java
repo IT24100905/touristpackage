@@ -6,6 +6,7 @@ public class BasicOrder {
     private String name;
     private String email;
     private int adults;
+    private String status;
     private int kids;
     private String arrivalDate;
     private String packageName;
@@ -30,6 +31,27 @@ public class BasicOrder {
         this.paymentReference = paymentReference;
         this.paymentDate = paymentDate;
     }
+    public BasicOrder(String username, String packageId, String name, String email,
+                      int adults, int kids, String arrivalDate, String packageName,
+                      double totalCost, String paymentMethod, String paymentReference,
+                      String paymentDate, String status) {
+        this.username = username;
+        this.packageId = packageId;
+        this.name = name;
+        this.email = email;
+        this.adults = adults;
+        this.kids = kids;
+        this.arrivalDate = arrivalDate;
+        this.packageName = packageName;
+        this.totalCost = totalCost;
+        this.paymentMethod = paymentMethod;
+        this.paymentReference = paymentReference;
+        this.paymentDate = paymentDate;
+        this.status = status;
+    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
 
     // Getters
     public String getUsername() { return username; }

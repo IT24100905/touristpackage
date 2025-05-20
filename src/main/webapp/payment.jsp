@@ -1,3 +1,10 @@
+<%@ page session="true" %>
+<%
+  String formAction = "processPayment"; // default for custom orders
+  if ("basic".equals(session.getAttribute("orderType"))) {
+    formAction = "processBasicPayment";
+  }
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -124,8 +131,9 @@
     <h1>Payment Information</h1>
   </div>
 
-  <form class="payment-form" action="processPayment.jsp" method="post">
-    <div class="form-group">
+  <form action="<%= formAction %>" method="post" class="payment-form">
+
+  <div class="form-group">
       <label for="paymentMethod">Payment Method:</label>
       <select class="form-control" id="paymentMethod" name="paymentMethod" required>
         <option value="" disabled selected>-- Select --</option>

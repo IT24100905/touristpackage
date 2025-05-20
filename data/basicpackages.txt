@@ -1,4 +1,4 @@
-PKG001,Island Explorer,Sri Lanka,5,250000,Experience beaches and wildlife
-PKG002,Tokyo Culture Tour,Japan,7,450000,Explore modern Tokyo and ancient temples
-PKG003,Egyptian Mysteries,Egypt,8,300000,Discover pyramids and the Nile's wonders
-PKG004,Spanish Fiesta,Spain,6,400000,Enjoy food, dance, and sunny landscapes
+PKG001,Island Explorer,Sri Lanka,5,250000.0,Experience beaches and wildlife
+PKG003,Egyptian Mysteries,Egypt,8,300000.0,Discover pyramids and the Nile's wonders
+PKG004,Spanish Fiesta,Spain,7,400000.0,Enjoy food, dance, and sunny landscapes
+PKG002,Tokyo Culture Tour,Japan,7,450000.0,Explore modern Tokyo and ancient temples

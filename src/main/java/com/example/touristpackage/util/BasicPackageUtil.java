@@ -51,6 +51,17 @@ public class BasicPackageUtil {
         return null;
     }
 
+    public static String getPackageNameById(String id) {
+        List<BasicPackage> packages = getAllPackages();
+        for (BasicPackage p : packages) {
+            if (p.getId().equals(id)) {
+                return p.getName();
+            }
+        }
+        return "Unknown Package";
+    }
+
+
     public static void addPackage(BasicPackage bp) {
         savePackage(bp); // delegate to shared logic
     }

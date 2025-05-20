@@ -1,2 +1,6 @@
 sishan,Custom Package,Mr. wfsdf,sishanhewa4@gmail.com,2414,India,2,3,2025-05-07,3,Italy,,1907500.0,Online,2025-05-20,32323,Approved
 ramika2,Custom Package,Mr. saf,sishanhewa4@gmail.com,213,-- Nationality --,1,2,2025-05-08,3,Italy,,1090000.0,Online,2025-05-08,fsaf,pending
+kavithra,Custom Package,Mr. kavee,123@gmail.com,2322,Sri Lanka,2,1,2025-05-02,2,Thailand,wsww,540000.0,bank,2025-05-09,Tx233,pending
+kavithra,Custom Package,Mr. fa,123@gmail.com,645,India,2,1,2025-05-20,2,Malaysia,ss,460000.0,online,2025-05-08,dsa,pending
+kavithra,Custom Package,Mr. ss,123@gmail.oc,22,India,2,1,2025-05-22,2,Spain,www,1060000.0,online,2025-05-06,sf22,pending
+kavithra,Custom Package,Mr. sss,123@gmail.co,222,India,2,1,2025-05-10,2,Thailand,wsss,540000.0,bank,2025-05-10,sssss,pending

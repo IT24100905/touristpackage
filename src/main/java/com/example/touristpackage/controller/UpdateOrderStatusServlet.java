@@ -1,12 +1,17 @@
 package com.example.touristpackage.controller;
 
+import com.example.touristpackage.entity.BasicOrder;
+import com.example.touristpackage.entity.Order;
 import com.example.touristpackage.util.AdminOrderService;
 import com.example.touristpackage.util.FilePathUtil;
+import com.example.touristpackage.util.OrderUtil;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/UpdateOrderStatusServlet")
 public class UpdateOrderStatusServlet extends HttpServlet {
@@ -27,14 +32,21 @@ public class UpdateOrderStatusServlet extends HttpServlet {
                 : action.equalsIgnoreCase("reject") ? "Rejected"
                 : "Pending";
 
-        String filePath = type.equals("basic") ? FilePathUtil.BASIC_ORDER_FILE : FilePathUtil.ORDER_FILE;
-
-        AdminOrderService.updateOrderStatus(user, filePath, ref, status);
-
-        // redirect back to the same type page
-        if ("basic".equals(type)) {
+        if ("basic".equalsIgnoreCase(type)) {
+            // ✅ Handle basic order update
+            List<Order> orders = OrderUtil.getAllBasicOrders();
+            for (Order order : orders) {
+                if (order.getUsername().equals(user) &&
+                        order.getPaymentReference().equals(ref)) {
+                    order.setStatus(status);
+                }
+            }
+            OrderUtil.saveAllOrdersAsBasic(orders);
             response.sendRedirect("manageBasicOrders.jsp");
+
         } else {
+            // ✅ Handle custom order update via AdminOrderService
+            AdminOrderService.updateOrderStatus(user, FilePathUtil.ORDER_FILE, ref, status);
             response.sendRedirect("manageCustomOrders.jsp");
         }
     }

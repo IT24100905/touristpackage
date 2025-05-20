@@ -60,6 +60,12 @@
     </div>
 
     <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="text" name="price" class="form-control" required value="<%= bp.getPrice() %>">
+    </div>
+
+
+    <div class="mb-3">
       <label class="form-label">Description</label>
       <textarea name="description" class="form-control" rows="3" required><%= bp.getDescription() %></textarea>
     </div>

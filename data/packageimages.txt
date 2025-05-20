@@ -4,3 +4,4 @@ PKG003,https://img.freepik.com/free-photo/dawn-view-toledo_1398-2077.jpg?t=st=17
 PKG004,https://img.freepik.com/free-photo/egyptian-wall-with-hieroglyphs_23-2151617110.jpg?t=st=1746632330~exp=1746635930~hmac=857b4759b446df9bf37038a0eddf626142eea8d8d02ad8400eb05ff1690a0b77&w=2000
 kavithra,sampleurl
 asdas,323sad
+222,https://www.hostinger.co.uk/tutorials/wp-content/uploads/sites/2/2022/07/the-structure-of-a-url.png

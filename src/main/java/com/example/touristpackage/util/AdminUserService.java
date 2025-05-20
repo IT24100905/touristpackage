@@ -1,5 +1,6 @@
 package com.example.touristpackage.util;
 
+import com.example.touristpackage.entity.BasicOrder;
 import com.example.touristpackage.entity.UserDetail;
 import java.io.*;
 import java.util.ArrayList;
@@ -20,6 +21,27 @@ public class AdminUserService {
         }
 
         saveAllUsers(updatedUsers);
+    }
+
+    public static List<BasicOrder> getAllBasicOrders() {
+        List<BasicOrder> list = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FilePathUtil.BASIC_ORDER_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] p = line.split(",", -1);
+                if (p.length == 12) {
+                    list.add(new BasicOrder(
+                            p[0], p[1], p[2], p[3],
+                            Integer.parseInt(p[4]), Integer.parseInt(p[5]),
+                            p[6], p[7], Double.parseDouble(p[8]),
+                            p[9], p[10], p[11]
+                    ));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public static UserDetail getUserByUsername(String username) {

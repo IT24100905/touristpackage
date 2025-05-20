@@ -101,7 +101,7 @@
       %>
       <tr>
         <td><%= count++ %></td>
-        <td><%= o.getTitle() %></td>
+        <td><%= o.getCountry() %></td> <!-- 🔁 changed from getTitle() -->
         <td>LKR <%= o.getTotalCost() %></td>
         <td><span class="status-badge <%= badgeClass %>"><%= o.getStatus() %></span></td>
         <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>

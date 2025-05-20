@@ -1,11 +1,13 @@
-<%@ page import="com.example.touristpackage.entity.Order" %>
-<%@ page import="com.example.touristpackage.util.AdminOrderService" %>
-<%@ page session="true" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.touristpackage.entity.BasicOrder" %>
+<%@ page import="com.example.touristpackage.entity.Order" %>
+<%@ page import="com.example.touristpackage.util.OrderUtil" %>
+<%@ page session="true" %>
 
 <%
-  List<Order> orders = AdminOrderService.getAllBasicOrders();
+  List<Order> orders = OrderUtil.getAllBasicOrders();
 %>
+
 
 <!DOCTYPE html>
 <html>
@@ -74,15 +76,17 @@
       <% } else {
         int count = 1;
         for (Order o : orders) {
-          String badge = o.getStatus().equalsIgnoreCase("approved") ? "status-approved" :
-                  o.getStatus().equalsIgnoreCase("rejected") ? "status-rejected" : "status-pending";
+          String status = o.getStatus();
+          String badge = status.equalsIgnoreCase("Approved") ? "status-approved"
+                  : status.equalsIgnoreCase("Rejected") ? "status-rejected"
+                  : "status-pending";
       %>
       <tr>
         <td><%= count++ %></td>
         <td><%= o.getUsername() %></td>
-        <td><%= o.getTitle() %></td>
+        <td><%= o.getCountry() %></td>
         <td><%= o.getTotalCost() %></td>
-        <td><span class="<%= badge %>"><%= o.getStatus() %></span></td>
+        <td><span class="<%= badge %>"><%= status %></span></td>
         <td>
           <a href="viewBasicOrder.jsp?user=<%= o.getUsername() %>&ref=<%= o.getPaymentReference() %>" class="btn btn-sm btn-outline-primary">
             <i class="bi bi-eye"></i> View

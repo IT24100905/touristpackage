@@ -1,7 +1,6 @@
 package com.example.touristpackage.controller;
 
 import com.example.touristpackage.entity.Order;
-import com.example.touristpackage.entity.User;
 import com.example.touristpackage.util.OrderUtil;
 
 import jakarta.servlet.ServletException;
@@ -21,22 +20,33 @@ public class PaymentServlet extends HttpServlet {
             return;
         }
 
-        User user = (User) session.getAttribute("user");
-        Order temp = (Order) session.getAttribute("orderTemp");
+        try {
+            String username = (String) session.getAttribute("user");
+            Order temp = (Order) session.getAttribute("orderTemp");
 
-        String method = request.getParameter("method");
-        String date = request.getParameter("date");
-        String reference = request.getParameter("reference");
+            // Match field names from JSP exactly
+            String method = request.getParameter("paymentMethod").trim();
+            String date = request.getParameter("paymentDate").trim();
+            String reference = request.getParameter("referenceNo").trim();
 
-        Order finalOrder = new Order(
-                user.getUsername(), temp.getTitle(), temp.getName(), temp.getEmail(), temp.getContact(), temp.getNationality(),
-                temp.getAdults(), temp.getKids(), temp.getArrival(), temp.getDuration(), temp.getCountry(), temp.getMessage(),
-                temp.getTotalCost(), method, date, reference, "pending"
-        );
+            // Create final order with payment info
+            Order finalOrder = new Order(
+                    username, temp.getTitle(), temp.getName(), temp.getEmail(), temp.getContact(), temp.getNationality(),
+                    temp.getAdults(), temp.getKids(), temp.getArrival(), temp.getDuration(), temp.getCountry(), temp.getMessage(),
+                    temp.getTotalCost(), method, date, reference, "pending"
+            );
 
-        OrderUtil.saveOrder(finalOrder);
-        session.removeAttribute("orderTemp");
-        response.sendRedirect("success.jsp");
+            // Save order
+            OrderUtil.saveOrder(finalOrder);
+
+            // Clear session and redirect
+            session.removeAttribute("orderTemp");
+            response.sendRedirect("success.jsp");
+
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the error
+            request.setAttribute("error", "Payment failed: " + e.getMessage());
+            request.getRequestDispatcher("payment.jsp").forward(request, response);
+        }
     }
-
 }
